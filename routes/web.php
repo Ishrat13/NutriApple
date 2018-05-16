@@ -107,4 +107,15 @@ Route::prefix('admin')->group(function () {
     Route::get('destroyService/{id}', ['uses'=>'Admin\ServiceController@destroy','as'=>'destroyService','roles'=>['superadmin']]);
 
 
+    //Aboutus add,edit,delete
+
+    Route::get('/aboutus', ['uses' => 'Admin\AboutusController@index', 'as' => 'aboutusindex', 'roles' => ['superadmin']]);
+    Route::get('/writeaboutus', ['uses' => 'Admin\AboutusController@create', 'as' => 'createaboutus', 'roles' => ['superadmin']]);
+    Route::get('showaboutus/{id}', ['uses'=>'Admin\AboutusController@show','as'=>'showaboutus','roles'=>['superadmin']]);
+    Route::get('editaboutus/{id}', ['uses'=>'Admin\AboutusController@edit','as'=>'editaboutus','roles'=>['superadmin']]);
+    Route::get('destroyaboutus/{id}', ['uses'=>'Admin\AboutusController@destroy','as'=>'destroyaboutus','roles'=>['superadmin']]);
+    Route::post('aboutusPost', 'Admin\AboutusController@store')->name('aboutusPost');
+    Route::patch('updateaboutus/{id}',['uses'=>'Admin\AboutusController@update','as'=>'updateaboutus','roles'=>['superadmin']]);
+
+
 });
