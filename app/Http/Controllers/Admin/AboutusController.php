@@ -131,6 +131,8 @@ class AboutusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        about::destroy($id);
+        session()->flash('message','successfully deleted!!!');
+        return redirect(('admin/about/'));
     }
 }

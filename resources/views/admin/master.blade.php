@@ -409,8 +409,23 @@
                 </li>
 
 
-
                 <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>About Us</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                        <li><a href="{{route('aboutusindex')}}">About Us index</a></li>
+                        <li><a href="{{route('createaboutus')}}">Add About Us</a></li>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+
+
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">widgets</i>
                         <span>Services</span>
@@ -423,8 +438,6 @@
                         </li>
                     </ul>
                 </li>
-
-
 
 
                 <li class="active">
