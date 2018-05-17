@@ -4,7 +4,7 @@
     {{--<section class="content">--}}
 
     {{--<div class="row clearfix">--}}
-    {!! Form::open(['route' => array('updateaboutus', $blog->id),'enctype'=>'multipart/form-data','method'=>'patch']) !!}
+    {!! Form::open(['route' => array('updateaboutus', $about->id),'enctype'=>'multipart/form-data','method'=>'patch']) !!}
 
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -28,7 +28,7 @@
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <input type="text" class="form-control" name="title" value="{{ $blog->title }}" required>
+                    <input type="text" class="form-control" name="title" value="{{ $about->title }}" required>
                     <label class="form-label">Title</label>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <input type="text" class="form-control" name="subtitle" value="{{ $blog->subtitle }}" required>
+                    <input type="text" class="form-control" name="subtitle" value="{{ $about->subtitle }}" required>
                     <label class="form-label">Subtitle</label>
                 </div>
             </div>
@@ -45,7 +45,7 @@
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <textarea id="ckeditor" name="details"   class="form-control no-resize" required>{{ $blog->details }}</textarea>
+                    <textarea id="ckeditor" name="details"   class="form-control no-resize" required>{{ $about->details }}</textarea>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <img src="{{asset('image/about-photo/'.$blog->image)}}" width="400px",height="400px">
+                    <img src="{{asset('image/about-photo/'.$about->image)}}" width="400px",height="400px">
                 </div>
 
                 <div class="form-control">

@@ -40,15 +40,15 @@
                             <tr>
                                 <td>{{ $a->id }}</td>
                                 <td>{{ $a->title }} </td>
-                                <td>{{ $a->category_id }}</td>
-                                <td>{{ $a->author }}</td>
-                                <td>{!! $a->blog_post !!} </td>
+                                <td>{{ $a->subtitle }}</td>
+                                <td>{{ $a->details }}</td>
+                                {{--<td>{!! $a->blog_post !!} </td>--}}
                                 <td><img src="{{asset('image/about-photo/'.$a->image)}}" width="400px",height="400px"></td>
 
                                 <td>
-                                    <a href="{{route('showBlog',['id'=>$a->id])}}">Show</a>
-                                    <a href="{{route('editBlog',['id'=>$a->id])}}">Edit</a>
-                                    <a href="{{route('destroyBlog',['id'=>$a->id])}}">Delete</a>
+                                    <a href="{{route('showaboutus',['id'=>$a->id])}}">Show</a>
+                                    <a href="{{route('editaboutus',['id'=>$a->id])}}">Edit</a>
+                                    <a href="{{route('destroyaboutus',['id'=>$a->id])}}">Delete</a>
 
                                 </td>
                             </tr>

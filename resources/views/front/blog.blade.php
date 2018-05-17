@@ -1,4 +1,5 @@
 @extends('front.master')
+@section('title', 'NutriApple | Blog')
 @section('content')
 
 <section class="page-title" style="background-image:url(front/images/background/bg-page-title-1.jpg);">
@@ -29,121 +30,40 @@
 
             <!--News Style One-->
             <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
+
+
+                @foreach($blogs as $blog)
+
                 <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-1.jpg') }}" alt=""></a></figure>
+                    <figure class="image-box"><img src="{{asset('image/blog-photo/'.$blog->image)}}" width="100px",height="100x" alt=""></figure>
                     <div class="lower-content">
-                        <div class="posted-info">August 20, 2016</div>
-                        <div class="post-author-info">by Erik Momsen </div>
-                        <h3><a href="blog-single.html">Stop Getting Annoyed If You Want Better Health</a></h3>
-                        <div class="text">At Integrative Nutrition, we teach the concept of Primary Food which is everything that nourishes your life [...]</div>
+                        <div class="posted-info">{{ $blog->created_at->diffForHumans() }}</div>
+                        <div class="post-author-info">{{ $blog->author }} </div>
+                        <h3><a href="#">{{ $blog->title }}</a></h3>
+                        {{--<div class="text">{{$blog->blog_post}}</div>--}}
                     </div>
+
+                    <p style="display: inline; text-align: justify">
+
+                        @php
+                            $limit=1000;
+                                if (strlen($blog->blog_post) > $limit){
+                               echo $stringCut = substr($blog->blog_post, 0, $limit);
+                               // echo substr($stringCut, 0, strrpos($stringCut, ''));
+                                }
+                                 else
+                                {
+                                echo $blog->blog_post;
+                                }
+                        @endphp
+                    </p>
+                    <a href="{{url('blogdetails/'.$blog->id)}}"> [Continue Reading ...]</a>
+
                 </div>
             </div>
 
             <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-2.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 22, 2016</div>
-                        <div class="post-author-info">by Alex Neil </div>
-                        <h3><a href="blog-single.html">What is a “Healthy” Food? The Answer</a></h3>
-                        <div class="text">Perspiciatis unde omnis iste natus sed error voluptatem accusantium uts doloremque laudantium, totrem explicabo [...]</div>
-                    </div>
-                </div>
-            </div>
-
-            <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-3.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 24, 2016</div>
-                        <div class="post-author-info">by Venannda Joy </div>
-                        <h3><a href="blog-single.html">Build an Athletic Body With In Eight Weeks Time</a></h3>
-                        <div class="text">How all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete [...]</div>
-                    </div>
-                </div>
-            </div>
-
-            <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-5.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 26, 2016</div>
-                        <div class="post-author-info">by William Son </div>
-                        <h3><a href="blog-single.html">Get Free Weight Lose Tips From Our Experts</a></h3>
-                        <div class="text">All this mistaken idea of denouncing and praising pain was born and will give you a completeof the system [...]</div>
-                    </div>
-                </div>
-            </div>
-
-            <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-6.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 28, 2016</div>
-                        <div class="post-author-info">by Steve Rock </div>
-                        <h3><a href="blog-single.html">Yoga and Healthy Food Making Your Family Happy</a></h3>
-                        <div class="text">We teach the concept of Primary sed Food which that nourishes your life perspiciatis seds unde omnis iste [...]</div>
-                    </div>
-                </div>
-            </div>
-
-            <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-7.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 30, 2016</div>
-                        <div class="post-author-info">by Erik Momsen  </div>
-                        <h3><a href="blog-single.html">Our Trainer Teaching About Fitness to Senior Person </a></h3>
-                        <div class="text">At Integrative Nutrition, we teach the concept of Primary Food which is everything that nourishes your life [...]</div>
-                    </div>
-                </div>
-            </div>
-
-            <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-8.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 12, 2016</div>
-                        <div class="post-author-info">by Alex Neil </div>
-                        <h3><a href="blog-single.html">Women Doing Pilates Exercise to Control Her Fitness</a></h3>
-                        <div class="text">Perspiciatis unde omnis iste natus sed error voluptatem accusantium uts doloremque laudantium, totrem explicabo [...]</div>
-                    </div>
-                </div>
-            </div>
-
-            <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-9.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 22, 2016</div>
-                        <div class="post-author-info">by William Son </div>
-                        <h3><a href="blog-single.html">Happy Senior Training With Our Award Winning Trainee</a></h3>
-                        <div class="text">How all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete [...]</div>
-                    </div>
-                </div>
-            </div>
-
-            <!--News Style One-->
-            <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="blog-single.html"><img src="{{ asset('front/images/resource/blog-image-10.jpg')}}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="posted-info">August 14, 2016</div>
-                        <div class="post-author-info">by Ashley Fletcher </div>
-                        <h3><a href="blog-single.html">Older Women Assisted By Our Young Yoga Trainer</a></h3>
-                        <div class="text">All this mistaken idea of denouncing and praising pain was born and will give you a completeof the system [...]</div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
         <!-- Styled Pagination -->

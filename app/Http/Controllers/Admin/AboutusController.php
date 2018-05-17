@@ -17,6 +17,7 @@ class AboutusController extends Controller
     public function index()
     {
         $about= about::all();
+
         return view('admin.aboutus.index',compact('about'));
     }
 
@@ -28,7 +29,7 @@ class AboutusController extends Controller
     public function create()
     {
         $about=about::all();
-
+dd($about);
         return view('admin.aboutus.create',compact('about'));
     }
 
@@ -48,7 +49,7 @@ class AboutusController extends Controller
             $file->move($destinationPath,$filename);
             $photo=$filename;
 
-            services::create(['title'=>$request->title,'subtitle'=>$request->subtitle,'details'=>$request->details,'image'=>$photo]);
+            about::create(['title'=>$request->title,'subtitle'=>$request->subtitle,'details'=>$request->details,'image'=>$photo]);
             return redirect('admin/aboutus/');
         }else {
             echo "no";
@@ -133,6 +134,6 @@ class AboutusController extends Controller
     {
         about::destroy($id);
         session()->flash('message','successfully deleted!!!');
-        return redirect(('admin/about/'));
+        return redirect(('admin/aboutus/'));
     }
 }

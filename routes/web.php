@@ -60,6 +60,12 @@ Route::prefix('')->group(function () {
 });
 
 
+//Front end route list
+Route::prefix('/')->group(function (){
+    Route::get('blog','FrontBlogController@index')->name('blog');
+    Route::get('blogdetails/{id}','FrontBlogController@show')->name('blogdetails');
+
+});
 
 
 
