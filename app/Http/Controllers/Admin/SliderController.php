@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\About;
+
+use App\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class AboutusController extends Controller
+class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,8 @@ class AboutusController extends Controller
      */
     public function index()
     {
-        $about= about::all();
-
-        return view('admin.aboutus.index',compact('about'));
+        $sliders= Slider::all();
+        return view('admin.slider.index',compact('sliders'));
     }
 
     /**
@@ -28,9 +28,8 @@ class AboutusController extends Controller
      */
     public function create()
     {
-        $about=about::all();
-
-        return view('admin.aboutus.create',compact('about'));
+        $sliders= Slider::all();
+        return view('admin.slider.create',compact('sliders'));
     }
 
     /**
@@ -42,15 +41,15 @@ class AboutusController extends Controller
     public function store(Request $request)
     {
         if($request->hasFile('image') && $request->file('image')->extension()==('jpeg'||'png')){
-            $destinationPath="image/about-photo";
+            $destinationPath="image/slider-photo";
             $file=$request->image;
             $extention=$file->getClientOriginalExtension();
             $filename=rand(1111111,9999999).".".$extention;
             $file->move($destinationPath,$filename);
             $photo=$filename;
 
-            about::create(['title'=>$request->title,'subtitle'=>$request->subtitle,'details'=>$request->details,'image'=>$photo]);
-            return redirect('admin/aboutus/');
+            Slider::create(['title'=>$request->title,'subtitle'=>$request->subtitle,'text'=>$request->text,'image'=>$photo]);
+            return redirect('admin/slider/');
         }else {
             echo "no";
         }
@@ -64,8 +63,8 @@ class AboutusController extends Controller
      */
     public function show($id)
     {
-        $about= about::find($id);
-        return view('admin.aboutus.show',compact('about'));
+        $sliders= Slider::find($id);
+        return view('admin.slider.show',compact('sliders'));
     }
 
     /**
@@ -76,8 +75,8 @@ class AboutusController extends Controller
      */
     public function edit($id)
     {
-        $about=about::select('id','title','subtitle','details','image')->where('id','=',$id)->get()->first();
-        return view('admin.aboutus.edit',compact('about'));
+        $sliders=Slider::select('id','title','subtitle','text','image')->where('id','=',$id)->get()->first();
+        return view('admin.slider.edit',compact('sliders'));
     }
 
     /**
@@ -89,12 +88,12 @@ class AboutusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oldimage = DB::table('abouts')->select('image')->find($id);
+        $oldimage = DB::table('sliders')->select('image')->find($id);
 
         if ($request->hasFile('image')) {
 
-            $destinationPath = "image/about-photo";
-            Storage::delete('about-photo/' . $oldimage->image);
+            $destinationPath = "image/slider-photo";
+            Storage::delete('slider-photo/' . $oldimage->image);
             $file = $request->image;
             $extention = $file->getClientOriginalExtension();
             $filename = rand(1111111, 9999999) . "." . $extention;
@@ -104,23 +103,22 @@ class AboutusController extends Controller
 
             $data = ['title' => $request->title,
                 'subtitle' => $request->subtitle,
-                'details' => $request->details,
+                'text' => $request->text,
                 'image' => $photo];
-            DB::table('abouts')
+            DB::table('sliders')
                 ->where('id', $id)
                 ->update($data);
-            return redirect('/admin/aboutus/');
+            return redirect('/admin/slider/');
         } else {
 
             $data = ['title' => $request->title,
-                'subtitle' => $request->description,
-                'details' => $request->icon,
+                'subtitle' => $request->subtitle,
+                'text' => $request->text,
                 'image' => $oldimage->image];
-
-            DB::table('services')
+            DB::table('sliders')
                 ->where('id', $id)
                 ->update($data);
-            return redirect('/admin/aboutus/');
+            return redirect('/admin/slider/');
         }
     }
 
@@ -132,8 +130,8 @@ class AboutusController extends Controller
      */
     public function destroy($id)
     {
-        about::destroy($id);
+        Slider::destroy($id);
         session()->flash('message','successfully deleted!!!');
-        return redirect(('admin/aboutus/'));
+        return redirect(('admin/slider/'));
     }
 }

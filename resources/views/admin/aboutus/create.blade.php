@@ -44,7 +44,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="subtitle" required>
-                                    <label class="form-label">Subtitle</label>
+                                    <label class="form-label">Founder</label>
                                 </div>
                             </div>
 

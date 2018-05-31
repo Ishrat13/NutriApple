@@ -4,13 +4,13 @@
     {{--<section class="content">--}}
 
     {{--<div class="row clearfix">--}}
-    {!! Form::open(['route' => array('updateblog', $blog->id),'enctype'=>'multipart/form-data','method'=>'patch']) !!}
+    {!! Form::open(['route' => array('updateslider', $sliders->id),'enctype'=>'multipart/form-data','method'=>'patch']) !!}
 
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h2>Add Blog</h2>
+                <h2></h2>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -28,15 +28,15 @@
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <input type="text" class="form-control" name="title" value="{{ $blog->title }}" required>
+                    <input type="text" class="form-control" name="title" value="{{ $sliders->title }}" required>
                     <label class="form-label">Title</label>
                 </div>
             </div>
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <input type="text" class="form-control" name="author" value="{{ $blog->author }}" required>
-                    <label class="form-label">Author</label>
+                    <input type="text" class="form-control" name="subtitle" value="{{ $sliders->subtitle }}" required>
+                    <label class="form-label">Sub Title</label>
                 </div>
             </div>
 
@@ -45,21 +45,21 @@
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <textarea id="ckeditor" name="blog_post"   class="form-control no-resize" required>{{ $blog->blog_post }}</textarea>
+                    <textarea id="ckeditor" name="text"   class="form-control no-resize" required>{{ $sliders->text }}</textarea>
                 </div>
             </div>
 
             <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 
             <script>
-                CKEDITOR.replace( 'blog_post' );
+                CKEDITOR.replace( 'text' );
             </script>
 
 
 
             <div class="form-group form-float">
                 <div class="form-line">
-                    <img src="{{asset('image/blog-photo/'.$blog->image)}}" width="400px",height="400px">
+                    <img src="{{asset('image/slider-photo/'.$sliders->image)}}" width="400px",height="400px">
                 </div>
 
                 <div class="form-control">

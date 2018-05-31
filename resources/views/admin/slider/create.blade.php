@@ -1,8 +1,11 @@
 @extends('admin.master')
 @section('content')
 
+    {{--<section class="content">--}}
 
-    <form action="{{route('servicePost')}}" method="post" enctype="multipart/form-data">
+
+
+    <form action="{{route('sliderPost')}}" method="post" enctype="multipart/form-data">
 
         {{csrf_field()}}
 
@@ -12,7 +15,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>Add Service</h2>
+                        <h2>Add Blog</h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -39,10 +42,33 @@
 
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="description" required>
-                                    <label class="form-label">Description</label>
+                                    <input type="text" class="form-control" name="subtitle" required>
+                                    <label class="form-label">Subtitle</label>
                                 </div>
                             </div>
+
+
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="subtitle" required>
+                                    <label class="form-label">Subtitle</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <textarea id="ckeditor" name="text"  class="form-control no-resize" required></textarea>
+                                </div>
+                            </div>
+
+                            <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+
+                            <script>
+                                CKEDITOR.replace( 'text' );
+                            </script>
 
 
 
@@ -52,14 +78,6 @@
                                     <label class="form-label"></label>
                                 </div>
                             </div>
-
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control" name="icon" required>
-                                    <label class="form-label">Icon</label>
-                                </div>
-                            </div>
-
 
 
                             <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>

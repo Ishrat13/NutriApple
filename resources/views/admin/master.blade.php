@@ -412,6 +412,24 @@
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">widgets</i>
+                        <span>Slider</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                        <li><a href="{{route('sliderindex')}}">All slider contents</a></li>
+                        <li><a href="{{route('createslider')}}">Add New slider content</a></li>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
                         <span>About Us</span>
                     </a>
                     <ul class="ml-menu">
@@ -422,10 +440,24 @@
                         </li>
                     </ul>
                 </li>
+
                 <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>Contact Us</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                        <li><a href="{{route('allcontacts')}}">People contacted us</a></li>
+                        {{--<li><a href="{{route('createaboutus')}}">Add About Us</a></li>--}}
+                        </a>
+                        </li>
+                    </ul>
+                </li>
 
 
 
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">widgets</i>
                         <span>Services</span>
@@ -438,6 +470,27 @@
                         </li>
                     </ul>
                 </li>
+
+
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>Appointments</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                        <li><a href="{{route('allappointments')}}">All Appointments</a></li>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
+
+
 
 
                 <li class="active">

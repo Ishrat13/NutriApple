@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Blog;
-use App\Category;
+use App\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
 
-class FrontBlogController extends Controller
+class FrontAboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +17,8 @@ class FrontBlogController extends Controller
     public function index()
     {
 
-      $blogs=Blog::all();
-//        $recent_posts = DB::table('blogs')
-//            ->orderByRaw('updated_at - created_at DESC')
-//            ->limit(5)
-//            ->get();
-        $categories = Category::all();
-
-        return view('front.blog',compact('blogs','categories'));
+        $abouts=About::all();
+        return view('front.about',compact('abouts'));
     }
 
     /**
@@ -35,7 +28,7 @@ class FrontBlogController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -57,8 +50,7 @@ class FrontBlogController extends Controller
      */
     public function show($id)
     {
-        $blogs = Blog::find($id);
-        return view('front.blogdetails',compact('blogs'));
+        //
     }
 
     /**

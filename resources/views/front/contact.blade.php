@@ -31,11 +31,17 @@
                 <!--form-box-->
                 <div class="form-box default-form">
                     <div class="contact-form default-form">
-                        <form method="post" action="http://world5.commonsupport.com/html2/health-coach/sendemail.php" id="contact-form">
+                        {{--<form method="post" action="http://world5.commonsupport.com/html2/health-coach/sendemail.php" id="contact-form">--}}
                             <div class="row clearfix">
 
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="username" value="" placeholder="Your Name *" required>
+
+                                <form action="{{route('contactus')}}" method="post" enctype="multipart/form-data">
+
+                                    {{csrf_field()}}
+
+
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="name" value="" placeholder="Your Name *" required>
                                 </div>
 
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
@@ -46,23 +52,17 @@
                                     <input type="text" name="phone" value="" placeholder="Phone Number">
                                 </div>
 
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <select name="subject">
-                                        <option>Subject</option>
-                                        <option>Wooden Flooring</option>
-                                        <option>Metal Flooring</option>
-                                        <option>Concrete Flooring</option>
-                                    </select>
-                                </div>
 
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <textarea name="message" placeholder="Message *"></textarea>
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <button type="submit" class="theme-btn btn-style-one">Submit now</button>
+
                                 </div>
+                                </form>
                             </div>
-                        </form>
+
                     </div>
                 </div>
             </div>

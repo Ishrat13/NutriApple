@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Blog;
-use App\Category;
+namespace App\Http\Controllers\Admin;
+
+use App\Appointment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
-
-
-class FrontBlogController extends Controller
+class AppointmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,15 +17,8 @@ class FrontBlogController extends Controller
      */
     public function index()
     {
-
-      $blogs=Blog::all();
-//        $recent_posts = DB::table('blogs')
-//            ->orderByRaw('updated_at - created_at DESC')
-//            ->limit(5)
-//            ->get();
-        $categories = Category::all();
-
-        return view('front.blog',compact('blogs','categories'));
+        $appointments = Appointment::all();
+        return view('admin.appointment.index',compact('appointments'));
     }
 
     /**
@@ -35,7 +28,7 @@ class FrontBlogController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -46,7 +39,9 @@ class FrontBlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Appointment::create(['fname'=>$request->fname,'lname'=>$request->lname,'email'=>$request->email,'phone'=>$request->phone,'message'=>$request->message]);
+        session()->flash('message','Thanks! Your Message has been posted Successfully. Waiting for Approval ...');
+        return view('front.index'.$request->contacts_id);
     }
 
     /**
@@ -57,8 +52,7 @@ class FrontBlogController extends Controller
      */
     public function show($id)
     {
-        $blogs = Blog::find($id);
-        return view('front.blogdetails',compact('blogs'));
+        //
     }
 
     /**
@@ -92,6 +86,8 @@ class FrontBlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Appointment::destroy($id);
+        session()->flash('message','successfully deleted!!!');
+        return redirect(('admin/appointment/'));
     }
 }
