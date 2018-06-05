@@ -126,7 +126,7 @@
                                         {{--</ul>--}}
                                     {{--</li>--}}
 
-                                    <li><a href="{{url('/contact')}}">Contact</a></li>
+                                    <li class="current"><a href="{{url('/contact')}}">Contact</a></li>
 
                                 </ul>
                             </div>

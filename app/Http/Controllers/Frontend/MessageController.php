@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Blog;
-use App\Category;
-use App\Contact;
+use App\Message;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-
-
-class FrontBlogController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,14 +15,7 @@ class FrontBlogController extends Controller
      */
     public function index()
     {
-
-      $blogs=Blog::all();
-//        $recent_posts = DB::table('blogs')
-//            ->orderByRaw('updated_at - created_at DESC')
-//            ->limit(5)
-//            ->get();
-        $categories = Category::all();
-        return view('front.blog',compact('blogs','categories'));
+        //
     }
 
     /**
@@ -36,9 +25,8 @@ class FrontBlogController extends Controller
      */
     public function create()
     {
-
+        //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -47,7 +35,8 @@ class FrontBlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Message::create($request->except('_token'));
+        return redirect()->back()->with('success','Your Message Has Been Sent Successfully. Thank You.');
     }
 
     /**
@@ -58,8 +47,7 @@ class FrontBlogController extends Controller
      */
     public function show($id)
     {
-        $blogs = blog::find($id);
-        return view('blogdetails',compact('blogs'));
+        //
     }
 
     /**

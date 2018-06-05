@@ -1,14 +1,11 @@
 @extends('admin.master')
 @section('content')
-
     <section class="content">
-
         <div class="container-fluid">
             {{--<div class="block-header">--}}
                 {{--<h2>Service Details </h2>--}}
                 {{--<small class="text-muted">Blog information form</small>--}}
             {{--</div>--}}
-
             <div class="row clearfix">
                 {!! Form::open([route('blogPost'),'enctype'=>'multipart/form-data','method'=>'post']) !!}
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

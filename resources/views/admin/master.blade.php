@@ -423,9 +423,6 @@
                     </ul>
                 </li>
                 <li>
-
-
-
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">widgets</i>
                         <span>Services</span>
@@ -433,7 +430,33 @@
                     <ul class="ml-menu">
                         <li>
                         <li><a href="{{route('servicesindex')}}">All Services</a></li>
-                        <li><a href="{{route('createservices')}}">Add New sService</a></li>
+                        <li><a href="{{route('createservices')}}">Add New Service</a></li>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>Contact</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                        <li><a href="{{route('contact.create')}}">Add Contact Details</a></li>
+                        <li><a href="{{url('admin/contact/{contact}/edit ')}}">Edit Contact Details</a></li>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>Messages</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                        <li><a href="{{route('message.index')}}">Show All Messages</a></li>
                         </a>
                         </li>
                     </ul>
@@ -444,7 +467,6 @@
                     <ul class="ml-menu">
                         </li>
                         <li>
-
                     <ul class="ml-menu">
                         <li>
                             <a href="{{ asset('back-end/pages/maps/google.html')}}">Google Map</a>

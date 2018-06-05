@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Blog;
-use App\Category;
 use App\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-
-
-class FrontBlogController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,13 +16,6 @@ class FrontBlogController extends Controller
     public function index()
     {
 
-      $blogs=Blog::all();
-//        $recent_posts = DB::table('blogs')
-//            ->orderByRaw('updated_at - created_at DESC')
-//            ->limit(5)
-//            ->get();
-        $categories = Category::all();
-        return view('front.blog',compact('blogs','categories'));
     }
 
     /**
@@ -36,7 +25,7 @@ class FrontBlogController extends Controller
      */
     public function create()
     {
-
+        return view('admin.contact.create');
     }
 
     /**
@@ -47,7 +36,17 @@ class FrontBlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+        ]);
+        if(sizeof(Contact::all())==1)
+        {
+            return redirect()->back()->with('error','Contact Details Already Exist');
+        }
+        Contact::create($request->except('_token'));
+        return redirect()->back()->with('success','Contact Details Updated Successfully');
     }
 
     /**
@@ -58,8 +57,7 @@ class FrontBlogController extends Controller
      */
     public function show($id)
     {
-        $blogs = blog::find($id);
-        return view('blogdetails',compact('blogs'));
+        //
     }
 
     /**
@@ -70,7 +68,8 @@ class FrontBlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact=Contact::select('*')->first();
+        return view('admin.contact.edit',compact('contact'));
     }
 
     /**
@@ -82,7 +81,13 @@ class FrontBlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+        ]);
+        Contact::where('id',$id)->update($request->except('_token','_method'));
+        return redirect()->back()->with('update','Data Updated');
     }
 
     /**
