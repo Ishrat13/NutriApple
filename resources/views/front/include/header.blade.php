@@ -4,7 +4,7 @@
 <!-- Mirrored from world5.commonsupport.com/html2/health-coach/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Mar 2018 10:49:07 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Health Coach - Health and Fitness HTML Template | Homepage</title>
+    <title>NutriApple | Homepage</title>
     <!-- Stylesheets -->
     <link href="{{asset('front/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('front/css/revolution-slider.css')}}" rel="stylesheet">
@@ -64,7 +64,7 @@
                 <div class="outer-container clearfix">
                     <!--Logo Box-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index.html"><img src="{{ asset('front/images/logo.png')}}" alt=""></a></div>
+                        <div class="logo"><a href="index.html"><img src="{{ asset('front/images/2.png')}}" alt=""></a></div>
                     </div>
 
                     <!--Nav Outer-->
@@ -100,14 +100,7 @@
                                             {{--<li><a href="service-single.html">Fitness &amp; Performance</a></li>--}}
                                         {{--</ul>--}}
                                     </li>
-                                    <li class="dropdown"><a href="#">Gallery</a>
-                                        <ul>
-                                            <li><a href="portfolio-four-column.html">Gallery Four Column</a></li>
-                                            <li><a href="portfolio-fullwidth.html">Gallery Fullwidth</a></li>
-                                            <li><a href="portfolio-with-text.html">Gallery With Text</a></li>
-                                            <li><a href="portfolio-single.html">Gallery Single</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li class="current"><a href="{{url('/blog')}}">Blog</a>
                                         {{--<ul>--}}
                                             {{--<li><a href="blog.html">Blog Classic</a></li>--}}
@@ -140,7 +133,7 @@
                     </div><!-- / Hidden Nav Toggler -->
 
                     <!--Cart Btn-->
-                    <a href="shopping-cart.html" class="cart-btn-outer cart-btn"><span class="fa fa-shopping-cart"></span><span class="count">2</span></a>
+
 
                 </div>
             </div>

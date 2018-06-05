@@ -24,6 +24,14 @@ Route::get('blog/view','Admin\BlogController@view');
 Route::post('blog/edit/{id}','Admin\BlogController@edit');
 Route::post('blog/update/{id}','Admin\BlogController@update');
 
+
+
+
+
+
+
+
+
 /*  ================    Backend    ====================     */
 
 
@@ -59,6 +67,13 @@ Route::prefix('')->group(function () {
 Route::prefix('/')->group(function (){
     Route::get('blog','FrontBlogController@index')->name('blog');
     Route::get('blogdetails/{id}','FrontBlogController@show')->name('blogdetails');
+    Route::get('about','FrontAboutController@index')->name('about');
+    Route::get('services','FrontServiceController@index')->name('services');
+    Route::get('servicedetails/{id}','FrontServiceController@show')->name('servicedetails');
+
+    Route::get('','FrontSliderController@index')->name('slider');
+    Route::post('contactus','ContactUsController@store')->name('contactus');
+    Route::post('','Admin\AppointmentController@store')->name('appointment');
 
 });
 
@@ -108,6 +123,15 @@ Route::prefix('admin')->group(function () {
     Route::get('destroyService/{id}', ['uses'=>'Admin\ServiceController@destroy','as'=>'destroyService','roles'=>['superadmin']]);
 
 
+    //Why Choose Us add,edit,delete
+    Route::get('/choose', ['uses'=>'Admin\ChooseController@index','as'=>'choosesindex','roles'=>['superadmin']]);
+    Route::post('/choosestore', ['uses'=>'Admin\ChooseController@store','as'=>'choosesstore','roles'=>['superadmin']]);
+    Route::get('/writechoose', ['uses'=>'Admin\ChooseController@create','as'=>'createchoose','roles'=>['superadmin']]);
+    Route::get('showchoose/{id}', ['uses'=>'Admin\ChooseController@show','as'=>'showchoose','roles'=>['superadmin']]);
+    Route::get('editchoose/{id}', ['uses'=>'Admin\ChooseController@edit','as'=>'editService','roles'=>['superadmin']]);
+    Route::patch('updateService/{id}',['uses'=>'Admin\ChooseController@update','as'=>'updateService','roles'=>['superadmin']]);
+    Route::post('servicePost', 'Admin\ChooseController@store')->name('servicePost');
+    Route::get('destroyService/{id}', ['uses'=>'Admin\ChooseController@destroy','as'=>'destroyService','roles'=>['superadmin']]);
     //Aboutus add,edit,delete
 
     Route::get('/aboutus', ['uses' => 'Admin\AboutusController@index', 'as' => 'aboutusindex', 'roles' => ['superadmin']]);
@@ -121,4 +145,22 @@ Route::prefix('admin')->group(function () {
     Route::resource('contact','Admin\ContactController');
     Route::resource('message','Admin\MessageController');
 
+    //Slider add, update delete
+    Route::get('/slider', ['uses' => 'Admin\SliderController@index', 'as' => 'sliderindex', 'roles' => ['superadmin']]);
+    Route::get('/createslider', ['uses' => 'Admin\SliderController@create', 'as' => 'createslider', 'roles' => ['superadmin']]);
+    Route::get('showSlider/{id}', ['uses'=>'Admin\SliderController@show','as'=>'showSlider','roles'=>['superadmin']]);
+    Route::get('editSlider/{id}', ['uses'=>'Admin\SliderController@edit','as'=>'editSlider','roles'=>['superadmin']]);
+    Route::get('destroySlider/{id}', ['uses'=>'Admin\SliderController@destroy','as'=>'destroySlider','roles'=>['superadmin']]);
+    Route::post('sliderPost', 'Admin\SliderController@store')->name('sliderPost');
+    Route::patch('update/{id}',['uses'=>'Admin\SliderController@update','as'=>'updateslider','roles'=>['superadmin']]);
+
+
+
+    //Contactus
+
+    Route::get('/contactus',['uses'=>'Admin\ContactUsController@index','as'=>'allcontacts','roles'=>['superadmin','supportadmin']]);
+
+    //Appointment
+    Route::get('/appointment',['uses'=>'Admin\AppointmentController@index','as'=>'allappointments','roles'=>['superadmin','supportadmin']]);
+    Route::get('destroyappointment/{id}', ['uses'=>'Admin\AppointmentController@destroy','as'=>'destroyappointment','roles'=>['superadmin']]);
 });

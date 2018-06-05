@@ -39,6 +39,12 @@
                                     <label class="form-label">Description</label>
                                 </div>
                             </div>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 1a85c5227061c2f0fe0afa219be8fbbe22fbc2c0
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="file" class="form-control" name="image" required>

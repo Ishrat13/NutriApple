@@ -36,11 +36,13 @@
                 <!--form-box-->
                 <div class="form-box default-form">
                     <div class="contact-form default-form">
+
                         <form method="post" action="{{route('message.store')}}" id="contact-form">
                             {{csrf_field()}}
                             <div class="row clearfix">
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="name" placeholder="Your Name *" required>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="name" value="" placeholder="Your Name *" required>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                     <input type="email" name="mail"  placeholder="Your Mail *" required>
@@ -48,14 +50,19 @@
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <input type="text" name="phone"  placeholder="Phone Number">
                                 </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="phone" value="" placeholder="Phone Number">
+                                </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <textarea name="message" placeholder="Message *"></textarea>
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                     <button type="submit" class="theme-btn btn-style-one">Submit now</button>
+
                                 </div>
+                                </form>
                             </div>
-                        </form>
+
                     </div>
                 </div>
             </div>

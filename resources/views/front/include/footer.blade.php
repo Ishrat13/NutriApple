@@ -10,16 +10,22 @@
                 <div class="big-column col-md-8 col-sm-12 col-xs-12">
                     <div class="row clearfix">
                         <!--Footer Column-->
+<<<<<<< HEAD
                         <div class="footer-column col-md-12 col-sm-6 col-xs-12">
+=======
+                        <div class="footer-column col-sm-12">
+>>>>>>> 1a85c5227061c2f0fe0afa219be8fbbe22fbc2c0
                             <div class="footer-widget about-widget">
                                 <div class="footer-logo"><figure><a href="index.html"><img src="images/logo-3.png" alt=""></a></figure></div>
                                 <div class="widget-content">
+                                    <h2>About</h2>
                                     <div class="text">Your Transformation is our passion &amp;  We are your personal trainers, trained nutritionist, your supplement experts, your health coach, your support group We Provide technology ut tools great explorers of the truth, the masters of human happiness need burn fat, build  become your best self.</div>
                                 </div>
                             </div>
                         </div>
 
                         <!--Footer Column-->
+<<<<<<< HEAD
                         {{--<div class="footer-column col-md-6 col-sm-6 col-xs-12">--}}
                             {{--<div class="footer-widget links-widget">--}}
                                 {{--<h2>Quick Links</h2>--}}
@@ -60,14 +66,18 @@
                             {{--</div>--}}
 
                         {{--</div>--}}
+=======
+>>>>>>> 1a85c5227061c2f0fe0afa219be8fbbe22fbc2c0
 
                     </div>
+
                 </div>
 
                 <!--Big Column-->
                 <div class="big-column col-md-4 col-sm-12 col-xs-12">
                     <div class="row clearfix">
                         <!--Footer Column-->
+<<<<<<< HEAD
                         {{--<div class="footer-column col-md-6 col-sm-6 col-xs-12">--}}
                             {{--<div class="footer-widget posts-widget">--}}
                                 {{--<h2>Recent News</h2>--}}
@@ -95,6 +105,12 @@
 
                         <!--Footer Column-->
                         <div class="footer-column col-md-12 col-sm-6 col-xs-12">
+=======
+
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-sm-12">
+>>>>>>> 1a85c5227061c2f0fe0afa219be8fbbe22fbc2c0
                             <div class="footer-widget contact-widget">
                                 <h2>Contact Us</h2>
                                 <div class="widget-content">
@@ -108,6 +124,11 @@
                                     </ul>
                                 </div>
                             </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1a85c5227061c2f0fe0afa219be8fbbe22fbc2c0
                         </div>
 
                     </div>
@@ -122,15 +143,9 @@
     <div class="footer-bottom">
         <div class="auto-container">
             <div class="clearfix">
-                <div class="pull-left"><div class="copyright">HealthCoach Theme &copy; 2016 by <a href="https://themeforest.net/user/themekalia/portfolio" class="author-name">ThemeKalia</a></div></div>
+                <div class="pull-left"><div class="copyright">NutriApple &copy; 2018  <a href="" class="author-name"></a></div></div>
                 <div class="pull-right">
-                    <ul class="footer-social">
-                        <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
-                        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                        <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                        <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                        <li><a href="#"><span class="fa fa-instagram"></span></a></li>
-                    </ul>
+
                 </div>
             </div>
         </div>
