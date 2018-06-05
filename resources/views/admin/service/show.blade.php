@@ -1,4 +1,5 @@
 @extends('admin.master')
+<<<<<<< HEAD
                                 @section('content')
 
                                     <section class="content">
@@ -13,6 +14,19 @@
                                                 {!! Form::open([route('blogPost'),'enctype'=>'multipart/form-data','method'=>'post']) !!}
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="card">
+=======
+@section('content')
+    <section class="content">
+        <div class="container-fluid">
+            {{--<div class="block-header">--}}
+                {{--<h2>Service Details </h2>--}}
+                {{--<small class="text-muted">Blog information form</small>--}}
+            {{--</div>--}}
+            <div class="row clearfix">
+                {!! Form::open([route('blogPost'),'enctype'=>'multipart/form-data','method'=>'post']) !!}
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+>>>>>>> 35c2ff507c371e873c4229b91b940da9cbe21bd4
 
                                                         <div class="header">
                                                         </div>

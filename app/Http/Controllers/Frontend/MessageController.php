@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Slider;
+use App\Message;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class FrontSliderController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class FrontSliderController extends Controller
      */
     public function index()
     {
-        $sliders=Slider::all();
-        return view('front.index',compact('sliders'));
+        //
     }
 
     /**
@@ -28,7 +27,6 @@ class FrontSliderController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +35,8 @@ class FrontSliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Message::create($request->except('_token'));
+        return redirect()->back()->with('success','Your Message Has Been Sent Successfully. Thank You.');
     }
 
     /**

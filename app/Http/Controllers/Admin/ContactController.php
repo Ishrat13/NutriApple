@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Slider;
+use App\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class FrontSliderController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class FrontSliderController extends Controller
      */
     public function index()
     {
-        $sliders=Slider::all();
-        return view('front.index',compact('sliders'));
+
     }
 
     /**
@@ -26,7 +25,7 @@ class FrontSliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.contact.create');
     }
 
     /**
@@ -37,7 +36,17 @@ class FrontSliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+        ]);
+        if(sizeof(Contact::all())==1)
+        {
+            return redirect()->back()->with('error','Contact Details Already Exist');
+        }
+        Contact::create($request->except('_token'));
+        return redirect()->back()->with('success','Contact Details Updated Successfully');
     }
 
     /**
@@ -59,7 +68,8 @@ class FrontSliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact=Contact::select('*')->first();
+        return view('admin.contact.edit',compact('contact'));
     }
 
     /**
@@ -71,7 +81,13 @@ class FrontSliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+        ]);
+        Contact::where('id',$id)->update($request->except('_token','_method'));
+        return redirect()->back()->with('update','Data Updated');
     }
 
     /**

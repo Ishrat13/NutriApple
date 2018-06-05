@@ -1,15 +1,15 @@
 @extends('front.master')
 @section('content')
     <!--Main Slider-->
-,,    <section class="main-slider">
+    <section class="main-slider">
 
         <div class="tp-banner-container">
             <div class="tp-banner">
                 <ul>
 
+                    @foreach($sliders as $slider)
                     <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/image-1.jpg"  data-saveperformance="off"  data-title="Awesome Title Here">
-                        <img src="images/main-slider/image-1.jpg"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-
+                        <img src="{{asset('image/slider-photo/'.$slider->image)}}"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                         <div class="tp-caption sfl sfb tp-resizeme"
                              data-x="left" data-hoffset="15"
                              data-y="center" data-voffset="-100"
@@ -21,7 +21,7 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.3"
                              data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><h4>Inspiring you to live a healthier lifestyle.</h4></div>
+                             data-endeasing="Power4.easeIn"><h4>{{$slider->title}}</h4></div>
 
                         <div class="tp-caption sfl sfb tp-resizeme"
                              data-x="left" data-hoffset="15"
@@ -34,7 +34,7 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.3"
                              data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><h2>Hi, I’m Jacqueline <br>Your Health Advisor.</h2></div>
+                             data-endeasing="Power4.easeIn"><h2>{{$slider->subtitle}} </h2></div>
 
                         <div class="tp-caption sfl sfb tp-resizeme"
                              data-x="left" data-hoffset="15"
@@ -62,124 +62,8 @@
                              data-endspeed="1200"
                              data-endeasing="Power4.easeIn"><a href="about-us.html" class="theme-btn btn-style-one">Know more</a> &ensp; <a href="contact.html" class="theme-btn btn-style-two">Contact Us</a></div>
 
-
                     </li>
-
-                    <li data-transition="zoomin" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/image-2.jpg"  data-saveperformance="off"  data-title="Awesome Title Here">
-                        <img src="images/main-slider/image-2.jpg"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-
-                        <div class="tp-caption sfl sfb tp-resizeme"
-                             data-x="left" data-hoffset="450"
-                             data-y="center" data-voffset="-100"
-                             data-speed="1500"
-                             data-start="500"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><h4>Inspiring you to live a healthier lifestyle.</h4></div>
-
-                        <div class="tp-caption sfl sfb tp-resizeme"
-                             data-x="left" data-hoffset="450"
-                             data-y="center" data-voffset="20"
-                             data-speed="1500"
-                             data-start="1000"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><h2>We are Certified <br>Personal Trainer’s</h2></div>
-
-                        <div class="tp-caption sfl sfb tp-resizeme"
-                             data-x="left" data-hoffset="450"
-                             data-y="center" data-voffset="130"
-                             data-speed="1500"
-                             data-start="1500"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><div class="text">Health Coach provides world-class health, Yoga, fitness &amp; nutrition certification <br>programs to world-class professionals.</div></div>
-
-                        <div class="tp-caption sfr sfb tp-resizeme"
-                             data-x="left" data-hoffset="450"
-                             data-y="center" data-voffset="220"
-                             data-speed="1500"
-                             data-start="2000"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><a href="about-us.html" class="theme-btn btn-style-one">Know more</a> &ensp; <a href="contact.html" class="theme-btn btn-style-two">Contact Us</a></div>
-
-
-                    </li>
-
-                    <li data-transition="zoomout" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/image-3.jpg"  data-saveperformance="off"  data-title="Awesome Title Here">
-                        <img src="images/main-slider/image-3.jpg"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-
-                        <div class="tp-caption sfl sfb tp-resizeme"
-                             data-x="left" data-hoffset="15"
-                             data-y="center" data-voffset="-100"
-                             data-speed="1500"
-                             data-start="500"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><h4>Inspiring you to live a healthier lifestyle.</h4></div>
-
-                        <div class="tp-caption sfl sfb tp-resizeme"
-                             data-x="left" data-hoffset="15"
-                             data-y="center" data-voffset="20"
-                             data-speed="1500"
-                             data-start="1000"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><h2>Do Work That Aligns <br>with your Heart</h2></div>
-
-                        <div class="tp-caption sfl sfb tp-resizeme"
-                             data-x="left" data-hoffset="15"
-                             data-y="center" data-voffset="130"
-                             data-speed="1500"
-                             data-start="1500"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><div class="text">Health Coach provides world-class health, Yoga, fitness &amp; nutrition certification <br>programs to world-class professionals.</div></div>
-
-                        <div class="tp-caption sfr sfb tp-resizeme"
-                             data-x="left" data-hoffset="15"
-                             data-y="center" data-voffset="220"
-                             data-speed="1500"
-                             data-start="2000"
-                             data-easing="easeOutExpo"
-                             data-splitin="none"
-                             data-splitout="none"
-                             data-elementdelay="0.01"
-                             data-endelementdelay="0.3"
-                             data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><a href="about-us.html" class="theme-btn btn-style-one">Know more</a> &ensp; <a href="contact.html" class="theme-btn btn-style-two">Contact Us</a></div>
-
-
-                    </li>
+                        @endforeach
 
                 </ul>
 

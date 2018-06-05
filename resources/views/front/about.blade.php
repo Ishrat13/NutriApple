@@ -59,14 +59,6 @@
     </section>
 
 
-    <!--Certificates Section-->
-
-    <!--Why Choose Us  Section-->
-
-
-
-    <!--Team Section-->
-
 
 
 @endsection

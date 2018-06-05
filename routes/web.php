@@ -42,6 +42,8 @@ Route::post('blog/update/{id}','Admin\BlogController@update');
 
 
 Route::prefix('')->group(function () {
+    Route::resource('services','Frontend\ServiceController');
+
     Route::get('/', function () {
         return view('front.index');
     });
@@ -49,16 +51,9 @@ Route::prefix('')->group(function () {
     Route::get('/about', function () {
         return view('front.about');
     });
-    Route::get('/contact', function () {
-        return view('front.contact');
-    });
-    Route::get('/services', function () {
-        return view('front.services');
-    });
+    Route::resource('/contact', 'Frontend\ContactController');
+    Route::resource('/message', 'Frontend\MessageController');
 
-    Route::get('/contact', function () {
-        return view('front.contact');
-    });
 
     Route::get('/blog', function () {
         return view('front.blog
@@ -149,6 +144,8 @@ Route::prefix('admin')->group(function () {
     Route::post('aboutusPost', 'Admin\AboutusController@store')->name('aboutusPost');
     Route::patch('updateaboutus/{id}',['uses'=>'Admin\AboutusController@update','as'=>'updateaboutus','roles'=>['superadmin']]);
 
+    Route::resource('contact','Admin\ContactController');
+    Route::resource('message','Admin\MessageController');
 
     //Slider add, update delete
     Route::get('/slider', ['uses' => 'Admin\SliderController@index', 'as' => 'sliderindex', 'roles' => ['superadmin']]);

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Slider;
+use App\Contact;
+use App\Services;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class FrontSliderController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class FrontSliderController extends Controller
      */
     public function index()
     {
-        $sliders=Slider::all();
-        return view('front.index',compact('sliders'));
+        $services=Services::all();
+        return view('front.services',compact('services'));
     }
 
     /**

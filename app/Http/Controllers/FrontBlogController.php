@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Blog;
 use App\Category;
+use App\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,7 +25,6 @@ class FrontBlogController extends Controller
 //            ->limit(5)
 //            ->get();
         $categories = Category::all();
-
         return view('front.blog',compact('blogs','categories'));
     }
 
