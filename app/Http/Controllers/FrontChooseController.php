@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 use App\Choose;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class ChooseController extends Controller
+class FrontChooseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,9 @@ class ChooseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
         $chooses= Choose::all();
-        return view('admin.whychooseus.index',compact('chooses'));
+        return view('front.index',compact('chooses'));
     }
 
     /**
@@ -28,11 +26,8 @@ class ChooseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-
     {
-        $chooses=Choose::all();
-
-        return view('admin.whychooseus.create',compact('chooses'));
+        //
     }
 
     /**
@@ -43,9 +38,7 @@ class ChooseController extends Controller
      */
     public function store(Request $request)
     {
-
-        Choose::create(['icon'=>$request->icon,'title'=>$request->title,'description'=>$request->description]);
-        return redirect('admin/choose');
+        //
     }
 
     /**
@@ -56,8 +49,7 @@ class ChooseController extends Controller
      */
     public function show($id)
     {
-        $chooses= Choose::find($id);
-        return view('admin.whychooseus.show',compact('chooses'));
+        //
     }
 
     /**
@@ -68,8 +60,7 @@ class ChooseController extends Controller
      */
     public function edit($id)
     {
-        $chooses=Choose::select('id','icon','title','description')->where('id','=',$id)->get()->first();
-        return view('admin.whychooseus.edit',compact('chooses'));
+        //
     }
 
     /**
@@ -80,16 +71,8 @@ class ChooseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-
     {
-        $data = ['icon' => $request->icon,
-            'title' => $request->title,
-            'description' => $request->description];
-
-        DB::table('chooses')
-            ->where('id', $id)
-            ->update($data);
-        return redirect('/admin/choose/');
+        //
     }
 
     /**
@@ -100,9 +83,6 @@ class ChooseController extends Controller
      */
     public function destroy($id)
     {
-        Choose::destroy($id);
-        session()->flash('message','successfully deleted!!!');
-        return redirect('/admin/choose/');
-
+        //
     }
 }

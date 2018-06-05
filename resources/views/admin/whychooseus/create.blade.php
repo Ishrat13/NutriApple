@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <form action="{{route('servicePost')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('choosePost')}}" method="post" enctype="multipart/form-data">
 
         {{csrf_field()}}
 

@@ -476,6 +476,21 @@
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">widgets</i>
+                        <span>Why Choose Us</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                        <li><a href="{{route('choosesindex')}}">Why choose us index</a></li>
+                        <li><a href="{{route('createchoose')}}">Add New choose us</a></li>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
                         <span>Appointments</span>
                     </a>
                     <ul class="ml-menu">

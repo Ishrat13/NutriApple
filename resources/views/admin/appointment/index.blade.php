@@ -36,8 +36,8 @@
                         @foreach($appointments as $a)
                             <tr>
                                 <td>{{ $a->id }}</td>
-                                <td>{{ $a->firstname}} </td>
-                                <td>{{ $a->lastname}} </td>
+                                <td>{{ $a->fname}} </td>
+                                <td>{{ $a->lname}} </td>
                                 <td>{{ $a->email}} </td>
                                 <td>{{ $a->phone}} </td>
                                 <td>{{ $a->message}} </td>

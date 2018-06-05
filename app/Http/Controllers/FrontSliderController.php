@@ -15,9 +15,9 @@ class FrontSliderController extends Controller
      */
     public function index()
     {
-        $sliders=Slider::all();
+        $slider=Slider::all();
 
-        return view('front.index',compact('sliders'));
+        return view('front.index',compact('slider'));
     }
 
     /**

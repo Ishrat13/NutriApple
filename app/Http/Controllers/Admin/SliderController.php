@@ -19,6 +19,7 @@ class SliderController extends Controller
     {
         $sliders= Slider::all();
         return view('admin.slider.index',compact('sliders'));
+
     }
 
     /**

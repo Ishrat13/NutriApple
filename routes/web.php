@@ -133,10 +133,12 @@ Route::prefix('admin')->group(function () {
     Route::post('/choosestore', ['uses'=>'Admin\ChooseController@store','as'=>'choosesstore','roles'=>['superadmin']]);
     Route::get('/writechoose', ['uses'=>'Admin\ChooseController@create','as'=>'createchoose','roles'=>['superadmin']]);
     Route::get('showchoose/{id}', ['uses'=>'Admin\ChooseController@show','as'=>'showchoose','roles'=>['superadmin']]);
-    Route::get('editchoose/{id}', ['uses'=>'Admin\ChooseController@edit','as'=>'editService','roles'=>['superadmin']]);
-    Route::patch('updateService/{id}',['uses'=>'Admin\ChooseController@update','as'=>'updateService','roles'=>['superadmin']]);
-    Route::post('servicePost', 'Admin\ChooseController@store')->name('servicePost');
-    Route::get('destroyService/{id}', ['uses'=>'Admin\ChooseController@destroy','as'=>'destroyService','roles'=>['superadmin']]);
+    Route::get('editchoose/{id}', ['uses'=>'Admin\ChooseController@edit','as'=>'editchoose','roles'=>['superadmin']]);
+    Route::patch('updatechoose/{id}',['uses'=>'Admin\ChooseController@update','as'=>'updatechoose','roles'=>['superadmin']]);
+    Route::post('choosePost', 'Admin\ChooseController@store')->name('choosePost');
+    Route::get('destroychoose/{id}', ['uses'=>'Admin\ChooseController@destroy','as'=>'destroychoose','roles'=>['superadmin']]);
+
+
     //Aboutus add,edit,delete
 
     Route::get('/aboutus', ['uses' => 'Admin\AboutusController@index', 'as' => 'aboutusindex', 'roles' => ['superadmin']]);
