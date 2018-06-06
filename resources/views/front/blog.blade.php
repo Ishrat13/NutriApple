@@ -34,7 +34,7 @@
 
                 @foreach($blogs as $blog)
 
-                <div class="inner-box">
+                    <div class="inner-box">
                     <figure class="image-box"><img src="{{asset('image/blog-photo/'.$blog->image)}}" width="100px",height="100x" alt=""></figure>
                     <div class="lower-content">
                         <div class="posted-info">{{ $blog->created_at->diffForHumans() }}</div>
@@ -46,7 +46,7 @@
                     <p style="display: inline; text-align: justify">
 
                         @php
-                            $limit=1000;
+                            $limit=500;
                                 if (strlen($blog->blog_post) > $limit){
                                echo $stringCut = substr($blog->blog_post, 0, $limit);
                                // echo substr($stringCut, 0, strrpos($stringCut, ''));
@@ -60,11 +60,15 @@
                     <a href="{{url('blogdetails/'.$blog->id)}}"> [Continue Reading ...]</a>
 
                 </div>
+                @endforeach
             </div>
 
-            <!--News Style One-->
-            @endforeach
+
+
         </div>
+
+
+
 
         <!-- Styled Pagination -->
         <div class="styled-pagination text-center">
@@ -76,6 +80,7 @@
                 <li><a class="next" href="#"><span class="fa fa-caret-right"></span></a></li>
             </ul>
         </div>
+
 
     </div>
 </section>

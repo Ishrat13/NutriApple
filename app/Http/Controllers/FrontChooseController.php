@@ -17,7 +17,8 @@ class FrontChooseController extends Controller
     public function index()
     {
         $chooses= Choose::all();
-        return view('front.index',compact('chooses'));
+
+      return view('front.index');
     }
 
     /**

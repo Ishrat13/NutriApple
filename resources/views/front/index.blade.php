@@ -47,7 +47,7 @@
                              data-elementdelay="0.01"
                              data-endelementdelay="0.3"
                              data-endspeed="1200"
-                             data-endeasing="Power4.easeIn"><div class="text">Health Coach provides world-class health, Yoga, fitness &amp; nutrition certification <br>programs to world-class professionals.</div></div>
+                             data-endeasing="Power4.easeIn"><div class="text">{{ $slider->text}} <br></div></div>
 
                         <div class="tp-caption sfr sfb tp-resizeme"
                              data-x="left" data-hoffset="15"
@@ -86,33 +86,37 @@
             <div class="row clearfix">
                 <!--Featured Service -->
 
+                @foreach($chooses as $choose)
+
+
                 <div class="icon-column-two col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
-                        <div class="icon-box"><span class="flaticon-eggs-1"></span></div>
-                        <h3>Nutrition Strategies</h3>
-                        <div class="text">The relationship between us mind and body actually teachings of great explorer truth.</div>
+                        <div class="icon-box"><span class="{{$choose->icon}}"></span></div>
+                        <h3>{{$choose->title}}</h3>
+                        <div class="text">{{$choose->description}}</div>
                     </div>
                 </div>
                 <!--Featured Service -->
-            <div class="icon-column-two col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="inner-box">
-            <div class="icon-box"><span class="flaticon-eggs-1"></span></div>
-            <h3>Nutrition Strategies</h3>
-            <div class="text">The relationship between us mind and body actually teachings of great explorer truth.</div>
-            </div>
-            </div>
+            {{--<div class="icon-column-two col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+            {{--<div class="inner-box">--}}
+            {{--<div class="icon-box"><span class="flaticon-eggs-1"></span></div>--}}
+            {{--<h3>Nutrition Strategies</h3>--}}
+            {{--<div class="text">The relationship between us mind and body actually teachings of great explorer truth.</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
             <!--Featured Service -->
-            <div class="icon-column-two col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="inner-box">
-            <div class="icon-box"><span class="flaticon-eggs-1"></span></div>
-            <h3>Nutrition Strategies</h3>
-            <div class="text">The relationship between us mind and body actually teachings of great explorer truth.</div>
-            </div>
-            </div>
+            {{--<div class="icon-column-two col-lg-4 col-md-4 col-sm-6 col-xs-12">--}}
+            {{--<div class="inner-box">--}}
+            {{--<div class="icon-box"><span class="flaticon-eggs-1"></span></div>--}}
+            {{--<h3>Nutrition Strategies</h3>--}}
+            {{--<div class="text">The relationship between us mind and body actually teachings of great explorer truth.</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
             <!--Featured Service -->
-
+                @endforeach
 
             </div>
+
 
         </div>
     </section>
@@ -276,7 +280,7 @@
             <div class="sec-title">
                 <div class="clearfix">
                     <div class="pull-left">
-                        <h2>News and Articles</h2>
+                        <h2>Health Tips and Blogs</h2>
                         <div class="separator"></div>
                     </div>
 
@@ -286,47 +290,67 @@
                 </div>
             </div>
 
+            @foreach($blogs as $blog)
+
+
             <div class="row clearfix">
                 <!--News Style One-->
                 <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
-                        <figure class="image-box"><a href="blog-single.html"><img src="{ asset('front/images/resource/blog-image-1.jpg')}}" alt=""></a></figure>
+                        <figure class="image-box"><a href="blog-single.html">
+                                <img src="{{asset('image/blog-photo/'.$blog->image)}}"></a></figure>
                         <div class="lower-content">
-                            <div class="posted-info">August 20, 2016</div>
-                            <div class="post-author-info">by Erik Momsen </div>
-                            <h3><a href="blog-single.html">Stop Getting Annoyed If You Want Better Health</a></h3>
-                            <div class="text">At Integrative Nutrition, we teach the concept of Primary Food which is everything that nourishes your life [...]</div>
+                            <div class="posted-info">{{ $blog->created_at->diffForHumans() }}</div>
+                            <div class="post-author-info">by {{ $blog->author }}</div>
+                            <h3><a href="blog-single.html">{{ $blog->title }}</a></h3>
+                            <p style="display: inline; text-align: justify">
+
+                                @php
+                                    $limit=100;
+                                        if (strlen($blog->blog_post) > $limit){
+                                       echo $stringCut = substr($blog->blog_post, 0, $limit);
+                                       // echo substr($stringCut, 0, strrpos($stringCut, ''));
+                                        }
+                                         else
+                                        {
+                                        echo $blog->blog_post;
+                                        }
+                                @endphp
+                            </p>
+                            <a href="{{url('blogdetails/'.$blog->id)}}"> [Continue Reading ...]</a>
                         </div>
                     </div>
                 </div>
 
                 <!--News Style One-->
-                <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box">
-                        <figure class="image-box"><a href="blog-single.html"><img src="{ asset('front/images/resource/blog-image-2.jpg')}}" alt=""></a></figure>
-                        <div class="lower-content">
-                            <div class="posted-info">August 22, 2016</div>
-                            <div class="post-author-info">by Alex Neil </div>
-                            <h3><a href="blog-single.html">What is a “Healthy” Food? The Answer Will Surprise You</a></h3>
-                            <div class="text">Perspiciatis unde omnis iste natus sed error voluptatem accusantium uts doloremque laudantium, totrem explicabo [...]</div>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="news-style-one col-md-4 col-sm-6 col-xs-12">--}}
+                    {{--<div class="inner-box">--}}
+                        {{--<figure class="image-box"><a href="blog-single.html"><img src="{ asset('front/images/resource/blog-image-2.jpg')}}" alt=""></a></figure>--}}
+                        {{--<div class="lower-content">--}}
+                            {{--<div class="posted-info">August 22, 2016</div>--}}
+                            {{--<div class="post-author-info">by Alex Neil </div>--}}
+                            {{--<h3><a href="blog-single.html">What is a “Healthy” Food? The Answer Will Surprise You</a></h3>--}}
+                            {{--<div class="text">Perspiciatis unde omnis iste natus sed error voluptatem accusantium uts doloremque laudantium, totrem explicabo [...]</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <!--News Style One-->
-                <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
-                    <div class="inner-box">
-                        <figure class="image-box"><a href="blog-single.html"><img src="{ asset('front/images/resource/blog-image-3.jpg')}}" alt=""></a></figure>
-                        <div class="lower-content">
-                            <div class="posted-info">August 26, 2016</div>
-                            <div class="post-author-info">by Venannda Joy </div>
-                            <h3><a href="blog-single.html">Build an Athletic Body With In Eight Weeks Time</a></h3>
-                            <div class="text">How all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete [...]</div>
-                        </div>
-                    </div>
-                </div>
-
+                {{--<!--News Style One-->--}}
+                {{--<div class="news-style-one col-md-4 col-sm-6 col-xs-12">--}}
+                    {{--<div class="inner-box">--}}
+                        {{--<figure class="image-box"><a href="blog-single.html"><img src="{ asset('front/images/resource/blog-image-3.jpg')}}" alt=""></a></figure>--}}
+                        {{--<div class="lower-content">--}}
+                            {{--<div class="posted-info">August 26, 2016</div>--}}
+                            {{--<div class="post-author-info">by Venannda Joy </div>--}}
+                            {{--<h3><a href="blog-single.html">Build an Athletic Body With In Eight Weeks Time</a></h3>--}}
+                            {{--<div class="text">How all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete [...]</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                @endforeach
             </div>
+
+
 
         </div>
     </section>

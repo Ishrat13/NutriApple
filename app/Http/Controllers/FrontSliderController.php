@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Slider;
+use App\Choose;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +18,12 @@ class FrontSliderController extends Controller
     public function index()
     {
         $sliders=Slider::all();
-        return view('front.index',compact('sliders'));
+        $chooses= Choose::all();
+        $blogs=Blog::all();
+        return view('front.index',compact('sliders','chooses','blogs'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +54,8 @@ class FrontSliderController extends Controller
      */
     public function show($id)
     {
-        //
+         $chooses = Choose::find($id);
+        return view('front.index',compact('chooses'));
     }
 
     /**

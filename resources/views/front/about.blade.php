@@ -47,7 +47,7 @@
                         <div class="text">{!! $about->details !!} </div>
                         {{--<div class="signature-image"><img src="{{ asset('front/images/resource/signature.png')}}" alt=""></div>--}}
                         <div class="about-owner">
-                            <h4>{{ $about->subtitle }} <span class="designation">Founder</span></h4>
+                            <h4>{{ $about->subtitle }} <span class="designation"></span></h4>
                             <div class="company-title styled-font">NutriApple</div>
                         </div>
                     </div>
